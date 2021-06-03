@@ -1,3 +1,5 @@
+//引入发送请求的方法
+import {request} from "../../request/index.js";
 //Page Object
 Page({
   data: {
@@ -8,13 +10,19 @@ Page({
   //options(Object)
   onLoad: function(options){
     //发送异步请求获取轮播图数据    优化手段   promise
-    wx.request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
-      success: (result)=>{
-        this.setData({
-          siwperList:result.data.message
-        })
-      },
-    });
+    // wx.request({
+    //   url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+    //   success: (result)=>{
+    //     this.setData({
+    //       siwperList:result.data.message
+    //     })
+    //   },
+    // });
+    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"})
+    .then(result => {
+      this.setData({
+              siwperList:result.data.message
+            })
+    })
   },
 });
