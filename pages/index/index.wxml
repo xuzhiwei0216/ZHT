@@ -1,1 +1,18 @@
-<view>首页</view>
+<view class="tryp_index">
+    <!-- 搜索开始 -->
+    <SearchInput></SearchInput>
+    <!-- 搜索结束 -->
+    <!-- 轮播图开始 -->
+    <view class="index_swiper">
+        <swiper autoplay indicator-dots circular>
+            <swiper-item
+                wx:for="{{siwperList}}"
+                wx:key="goods_id">
+                <navigator>
+                    <image mode="widthFix" src="{{item.image_src}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 轮播图结束 -->
+</view>
