@@ -4,7 +4,11 @@ import {request} from "../../request/index.js";
 Page({
   data: {
     //轮播图数组
-    siwperList:[]
+    siwperList:[],
+    //导航数组
+    catesList:[],
+    //楼层数据
+    floorList:[]
   },
   //页面开始加载就会触发
   //options(Object)
@@ -18,6 +22,13 @@ Page({
     //     })
     //   },
     // });
+    this.gitSwiperList();
+    this.gitCatesList();
+    this.gitFloorList();
+  },
+
+  //获取轮播图数据
+  gitSwiperList(){
     request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"})
     .then(result => {
       this.setData({
@@ -25,4 +36,22 @@ Page({
             })
     })
   },
+  //获取导航数据
+  gitCatesList(){
+    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"})
+    .then(result => {
+      this.setData({
+        catesList:result.data.message
+            })
+    })
+  },
+  //获取楼层数据
+  gitFloorList(){
+    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/floordata"})
+    .then(result => {
+      this.setData({
+        floorList:result.data.message
+            })
+    })
+  }
 });

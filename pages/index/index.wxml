@@ -15,4 +15,44 @@
         </swiper>
     </view>
     <!-- 轮播图结束 -->
+
+    <!-- 导航开始 -->
+    <view class="index_cate">
+       <navigator 
+       wx:for="{{catesList}}"
+       wx:key="name"
+       >
+       <image mode="widthFix" src="{{item.image_src}}"></image>
+       </navigator>
+    </view>
+    
+    <!-- 导航结束 -->
+
+
+
+    <!-- 楼层开始 -->
+    <view class="index_floor">
+        <view class="floor_group"
+            wx:for="{{floorList}}"
+            wx:for-item="item1"
+            wx:key="floor_title"
+        >
+        <!-- 标题 -->
+            <view class="floor_title">
+                <image mode="widthFix" src="{{item1.floor_title.image_src}}"></image>
+            </view>
+        <!-- 内容 -->
+            <view class="floor_list">
+                <navigator 
+                    wx:for="{{item1.product_list}}"
+                    wx:for-item="item2"
+                    wx:key="name"
+                >
+                    <image mode="widthFix" src="{{item2.image_src}}"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 楼层结束 -->
+
 </view>
