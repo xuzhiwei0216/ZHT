@@ -29,28 +29,28 @@ Page({
 
   //获取轮播图数据
   gitSwiperList(){
-    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"})
+    request({url:"/home/swiperdata"})
     .then(result => {
       this.setData({
-              siwperList:result.data.message
+              siwperList:result
             })
     })
   },
   //获取导航数据
   gitCatesList(){
-    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"})
+    request({url:"/home/catitems"})
     .then(result => {
       this.setData({
-        catesList:result.data.message
+        catesList:result
             })
     })
   },
   //获取楼层数据
   gitFloorList(){
-    request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/floordata"})
+    request({url:"/home/floordata"})
     .then(result => {
       this.setData({
-        floorList:result.data.message
+        floorList:result
             })
     })
   }
