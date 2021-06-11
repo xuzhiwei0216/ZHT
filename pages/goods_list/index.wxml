@@ -1,8 +1,6 @@
 <SearchInput></SearchInput>
 <!-- 监听事件 -->
 <Tabs tabs="{{tabs}}" bindtabsItemChange="tabsItemChange">
-
-    
     <block wx:if="{{tabs[0].isActive}}">0</block>
     <block wx:elif="{{tabs[1].isActive}}">1</block>
     <block wx:elif="{{tabs[2].isActive}}">2</block>
